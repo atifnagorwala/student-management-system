@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Student Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+
+    <!-- ============================= -->
+    <!-- HEADER -->
+    <!-- ============================= -->
+
+    <div class="header">
+
+        <h1>🎓 Student Management System</h1>
+
+        <p>Manage your students easily</p>
+
+    </div>
+
+
+
+    <!-- ============================= -->
+    <!-- ADD STUDENT -->
+    <!-- ============================= -->
+
+    <div class="card">
+
+        <h2>Add New Student</h2>
+
+
+        <form id="studentForm">
+
+            <div class="form-grid">
+
+
+                <!-- ROLL -->
+
+                <div class="form-group">
+
+                    <label for="roll">
+                        Roll Number
+                    </label>
+
+                    <input
+                            type="number"
+                            id="roll"
+                            placeholder="Enter roll number"
+                            min="1"
+                            required
+                    >
+
+                </div>
+
+
+                <!-- NAME -->
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Name
+                    </label>
+
+                    <input
+                            type="text"
+                            id="name"
+                            placeholder="Enter student name"
+                            minlength="2"
+                            maxlength="100"
+                            required
+                    >
+
+                </div>
+
+
+                <!-- BRANCH -->
+
+                <div class="form-group">
+
+                    <label for="branch">
+                        Branch
+                    </label>
+
+                    <input
+                            type="text"
+                            id="branch"
+                            placeholder="Enter branch"
+                            minlength="2"
+                            maxlength="100"
+                            required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <button
+                    type="submit"
+                    class="add-button">
+
+                + Add Student
+
+            </button>
+
+        </form>
+
+    </div>
+
+
+
+    <!-- ============================= -->
+    <!-- STUDENT LIST -->
+    <!-- ============================= -->
+
+    <div class="card">
+
+
+        <div class="student-header">
+
+            <h2>Students</h2>
+
+
+            <button
+                    type="button"
+                    class="refresh-button"
+                    onclick="loadStudents()">
+
+                ⟳ Refresh
+
+            </button>
+
+        </div>
+
+
+
+        <!-- ============================= -->
+        <!-- SEARCH -->
+        <!-- ============================= -->
+
+        <div class="search-container">
+
+            <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="🔍 Search by roll, name or branch..."
+                    autocomplete="off"
+            >
+
+        </div>
+
+
+
+        <!-- ============================= -->
+        <!-- TABLE -->
+        <!-- ============================= -->
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                <tr>
+
+                    <th>Roll</th>
+
+                    <th>Name</th>
+
+                    <th>Branch</th>
+
+                    <th>Action</th>
+
+                </tr>
+
+                </thead>
+
+
+                <tbody id="studentTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
