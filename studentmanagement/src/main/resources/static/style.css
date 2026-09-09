@@ -456,3 +456,57 @@ tbody tr:hover {
     }
 
 }
+/* ===============================
+   AI STUDENT ASSISTANT
+   =============================== */
+
+.ai-section {
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.ai-section h2 {
+    margin-bottom: 10px;
+}
+
+#aiMode {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    margin-bottom: 15px;
+}
+
+#aiQuestion {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+#askAIButton {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#askAIButton:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+#aiLoading {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+#aiAnswer {
+    margin-top: 15px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    white-space: pre-wrap;
+    line-height: 1.5;
+}

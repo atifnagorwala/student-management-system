@@ -874,3 +874,140 @@ document.addEventListener(
 
     }
 );
+// ===============================
+// AI STUDENT ASSISTANT
+// ===============================
+
+const askAIButton = document.getElementById("askAIButton");
+const aiQuestion = document.getElementById("aiQuestion");
+const aiAnswer = document.getElementById("aiAnswer");
+const aiLoading = document.getElementById("aiLoading");
+const aiMode = document.getElementById("aiMode");
+
+
+askAIButton.addEventListener("click", async function () {
+
+    const question = aiQuestion.value.trim();
+    const mode = aiMode.value;
+
+    if (question === "") {
+
+        aiAnswer.textContent =
+            "Please enter a topic or question.";
+
+        return;
+    }
+
+
+    // ===============================
+    // CREATE PROMPT
+    // ===============================
+
+    let prompt = "";
+
+
+    if (mode === "explain") {
+
+        prompt =
+            "Explain the following programming topic clearly " +
+            "for a college student. Include an example if useful:\n\n" +
+            question;
+
+    }
+
+
+    else if (mode === "simple") {
+
+        prompt =
+            "Explain the following programming topic in very simple " +
+            "language as if teaching a beginner. Use a small example:\n\n" +
+            question;
+
+    }
+
+
+    else if (mode === "questions") {
+
+        prompt =
+            "Generate 5 practice questions for a college student " +
+            "on the following programming topic. Include the answers " +
+            "after the questions:\n\n" +
+            question;
+
+    }
+
+
+    else if (mode === "plan") {
+
+        prompt =
+            "Create a practical study plan for learning the following " +
+            "programming topic. Divide it into daily steps and include " +
+            "practice tasks:\n\n" +
+            question;
+
+    }
+
+
+    // ===============================
+    // SHOW LOADING
+    // ===============================
+
+    aiLoading.textContent = "AI is thinking...";
+    aiAnswer.textContent = "";
+
+    askAIButton.disabled = true;
+
+
+    try {
+
+        const response = await fetch(
+            "http://localhost:8080/ai/ask",
+            {
+
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    question: prompt
+                })
+            }
+        );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Server error: " + response.status
+            );
+        }
+
+
+        const data = await response.json();
+
+
+        // ===============================
+        // DISPLAY ANSWER
+        // ===============================
+
+        aiAnswer.textContent = data.answer;
+
+
+    } catch (error) {
+
+        console.error("AI Error:", error);
+
+        aiAnswer.textContent =
+            "Unable to connect to the AI server.";
+
+
+    } finally {
+
+        aiLoading.textContent = "";
+
+        askAIButton.disabled = false;
+    }
+
+});

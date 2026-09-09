@@ -203,6 +203,35 @@
 
 </div>
 
+<!-- AI Student Assistant -->
+<section class="ai-section">
+
+    <h2>AI Student Assistant</h2>
+
+    <p>Use AI to help with your programming studies.</p>
+
+    <label for="aiMode">Choose what you want:</label>
+
+    <select id="aiMode">
+        <option value="explain">Explain Topic</option>
+        <option value="simple">Explain in Simple Words</option>
+        <option value="questions">Generate Practice Questions</option>
+        <option value="plan">Create Study Plan</option>
+    </select>
+
+    <textarea
+            id="aiQuestion"
+            placeholder="Example: Java inheritance"
+            rows="5">
+    </textarea>
+
+    <button id="askAIButton">Ask AI</button>
+
+    <div id="aiLoading"></div>
+
+    <div id="aiAnswer"></div>
+
+</section>
 
 <!-- JAVASCRIPT -->
 
