@@ -961,7 +961,7 @@ askAIButton.addEventListener("click", async function () {
     try {
 
         const response = await fetch(
-            "http://localhost:8080/ai/ask",
+            "/ai/ask",
             {
 
                 method: "POST",
